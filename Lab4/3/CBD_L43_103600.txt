@@ -1,0 +1,56 @@
+// NMEC: 103600
+
+// a)
+
+// Entidades:
+// User (svn_id, real_name, organization)
+// Project (project_name)
+
+// Relações:
+// Collaborates (num, role_on_project)
+
+// b)
+
+// Foi usado Nick para o parâmetro svn_id para evitar confusão entre este e o id gerado pelo Neo4j
+load csv with headers from "file:///git_selection.csv" as row
+merge (u:User {Nick: trim(row.svn_id), Name: trim(row.real_name), Org: trim(row.organization)})
+merge (p:Project {Name: trim(row.project_name)})
+merge (u)-[:COLLABORATES {Num: trim(row.num), Role: trim(row.role_on_project)}]->(p)
+
+// c)
+
+#1
+match(u:User) return u
+
+#2
+match(u) return u.Name
+
+#3
+match (u:User)-[:COLLABORATES]->(p:Project)
+return distinct p
+
+#4
+match (u:User)-[r:COLLABORATES]-(p:Project)
+return u.Name, count(r)
+
+#5
+match (u:User)-[r:COLLABORATES]-(p:Project)
+return u.Name, count(r) order by count(r) desc
+
+#6
+match (u:User)-[r:COLLABORATES]-(p:Project)
+return p.Name, count(r)
+
+#7
+match (u:User)-[r:COLLABORATES {Role: "Committer"}]-(p:Project)
+return p.Name, count(r)
+
+#8
+match (u1:User{Nick: "atm"})-[:COLLABORATES]->(p:Project)<-[:COLLABORATES]-(u2:User)
+where u1<>u2
+return u1.Name, u2.Name, p.Name
+
+#9
+match (u1:User{Nick: "atm"})-[:COLLABORATES {Role: "PMC"}]->(p:Project)<-[:COLLABORATES {Role: "Committer"}]-(u2:User)
+where u1<>u2
+return u2

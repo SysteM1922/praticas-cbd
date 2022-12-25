@@ -1,0 +1,168 @@
+{
+	"user_id": "ef700fb5-0a7d-4517-8c37-c11176b93a1e",
+	"id": "172a2dae-3cce-4243-b7d2-f48dd117d14d",
+	"upload_date": "2022-07-3014:00:00.000Z",
+	"description": "Description6",
+	"tags": [
+		"Europe",
+		"Porto",
+		"Portugal"
+	],
+	"title": "Video6"
+}
+{
+	"user_id": "713bef7a-7c82-4fe7-9e35-96b251226950",
+	"id": "61d218d0-516f-4855-89dc-6c75247d3f39",
+	"upload_date": "2022-02-1310:00:00.000Z",
+	"description": "Description11",
+	"tags": [
+		"Game",
+		"Minecraft",
+		"PC"
+	],
+	"title": "Video11"
+}
+{
+	"user_id": "a16c5dd1-4650-4879-ba44-830365ef7735",
+	"id": "567066fa-a4f5-45fa-a9d7-9b391b6be2a6",
+	"upload_date": "2022-11-3014:00:00.000Z",
+	"description": "Description1",
+	"tags": [
+		"Aveiro",
+		"Europe",
+		"Portugal"
+	],
+	"title": "Video1"
+}
+{
+	"user_id": "944a0a54-0dc3-409f-b10a-f53ea68e62af",
+	"id": "6be75f07-b1ee-4183-a567-dc30fef5e9bf",
+	"upload_date": "2021-12-2423:59:59.000Z",
+	"description": "Description14",
+	"tags": [
+		"BeberÁgua",
+		"Saúde",
+		"Tutorial"
+	],
+	"title": "Video14"
+}
+{
+	"user_id": "ef700fb5-0a7d-4517-8c37-c11176b93a1e",
+	"id": "4a02a0d6-d5ab-4922-a75b-645fd660dc70",
+	"upload_date": "2022-11-3014:00:00.000Z",
+	"description": "Description4",
+	"tags": [
+		"Europe",
+		"Porto",
+		"Portugal"
+	],
+	"title": "Video4"
+}
+{
+	"user_id": "a16c5dd1-4650-4879-ba44-830365ef7735",
+	"id": "663e59ee-3fb2-4177-a2f3-a56485e08a4d",
+	"upload_date": "2022-11-3014:00:00.000Z",
+	"description": "Description2",
+	"tags": [
+		"Coimbra",
+		"Europe",
+		"Portugal"
+	],
+	"title": "Video2"
+}
+{
+	"user_id": "713bef7a-7c82-4fe7-9e35-96b251226950",
+	"id": "a437ecff-0ac8-4e25-a426-059ea7e02296",
+	"upload_date": "2022-02-1410:00:00.000Z",
+	"description": "Description12",
+	"tags": [
+		"Game",
+		"Minecraft",
+		"PC"
+	],
+	"title": "Video12"
+}
+{
+	"user_id": "ef700fb5-0a7d-4517-8c37-c11176b93a1e",
+	"id": "63a96cc6-f59f-490a-8caf-1d1dd1d1ac58",
+	"upload_date": "2022-07-2314:00:00.000Z",
+	"description": "Description5",
+	"tags": [
+		"Europe",
+		"Porto",
+		"Portugal"
+	],
+	"title": "Video5"
+}
+{
+	"user_id": "713bef7a-7c82-4fe7-9e35-96b251226950",
+	"id": "d969fdeb-b126-401b-8bbb-c37626cc9b12",
+	"upload_date": "2022-02-1110:00:00.000Z",
+	"description": "Description9",
+	"tags": [
+		"Game",
+		"Minecraft",
+		"PC"
+	],
+	"title": "Video9"
+}
+{
+	"user_id": "713bef7a-7c82-4fe7-9e35-96b251226950",
+	"id": "eb4a8ca1-0280-4562-86f1-9b8a285bac30",
+	"upload_date": "2022-02-1210:00:00.000Z",
+	"description": "Description10",
+	"tags": [
+		"Game",
+		"Minecraft",
+		"PC"
+	],
+	"title": "Video10"
+}
+{
+	"user_id": "a16c5dd1-4650-4879-ba44-830365ef7735",
+	"id": "1d269a9e-01bf-4467-b77f-7bacfba2ad5b",
+	"upload_date": "2022-11-3014:00:00.000Z",
+	"description": "Description3",
+	"tags": [
+		"Europe",
+		"Lisboa",
+		"Portugal"
+	],
+	"title": "Video3"
+}
+{
+	"user_id": "dc2d21ed-a835-4aa7-8003-fce63c104cc0",
+	"id": "db5867ef-e11b-4c5e-86e8-ed218e253cc9",
+	"upload_date": "2022-07-3014:00:00.000Z",
+	"description": "Description7",
+	"tags": [
+		"Africa",
+		"Cairo",
+		"Egypt"
+	],
+	"title": "Video7"
+}
+	{
+	"user_id": "2d8005e0-27c9-4bed-84c6-154746989505",
+	"id": "a150189a-6aa5-4ee6-aee9-b1f5f2bd7ebc",
+	"upload_date": "2022-05-1010:00:00.000Z",
+	"description": "Description13",
+	"tags": [
+		"Trip",
+		"UK",
+		"Vlog"
+	],
+	"title": "Video13"
+}
+{
+	"user_id": "dc2d21ed-a835-4aa7-8003-fce63c104cc0",
+	"id": "4614e178-f4b7-4cbb-8ee5-75795a9f41c9",
+	"upload_date": "2022-07-1015:00:00.000Z",
+	"description": "Description8",
+	"tags": [
+		"Africa",
+		"Alexandria",
+		"Egypt"
+	],
+	"title": "Video8"
+}

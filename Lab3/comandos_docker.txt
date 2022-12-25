@@ -1,0 +1,23 @@
+Instalar a imagem do Docker
+
+> docker pull cassandra:latest
+
+Criar container
+
+> docker run --name cassandra -p 9042:9042 cassandra:latest
+
+Aceder ao container
+
+> docker exec -it cassandra bash
+
+Iniciar o container existente
+
+> docker start cassandra
+
+Iniciar CQLSH
+
+> docker excec -it cassandra cqlsh
+
+Parar o container
+
+docker stop cassandra

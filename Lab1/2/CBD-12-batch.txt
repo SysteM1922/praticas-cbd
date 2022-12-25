@@ -1,0 +1,13 @@
+set user:1 "Jane"
+get user:1
+PING
+DBSIZE
+set testkey hello
+EXISTS testkey
+TYPE TESTKEY
+keys *
+get testkey
+DBSIZE
+del testkey
+exists testkey
+DBSIZE

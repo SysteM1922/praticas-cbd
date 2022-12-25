@@ -1,0 +1,121 @@
+// NMEC: 103600
+
+#1
+match(n)-[:DIRECTED]->(m)<-[:ACTED_IN]-(n)
+return n,m
+
+#2
+match(n)-[:ACTED_IN]->(m)
+where m.released > 2005
+return n.name
+
+#3
+match(n)-[r1]->(m)<-[r2]-(n)
+return n,m
+
+#4
+match(n1)-[:REVIEWED]->(m)<-[:REVIEWED]-(n2)
+where id(n1) < id(n2)
+return n1.name,n2.name,m.title
+
+#5
+match(n1)-[:ACTED_IN]->(m)<-[:ACTED_IN]-(n2)
+where id(n1) < id(n2)
+return n1.name,n2.name
+
+#6
+match(m:Movie{title:"Apollo 13"})<-[:ACTED_IN]-(p:Person)
+return AVG(m.released-p.born) as AVG_AGE
+
+#7
+match (m:Movie)<-[:ACTED_IN]-(a:Person)
+with m, avg(a.born) as averageAge
+return m.title as movie, round(m.released - averageAge, 2) as avg_age
+order by avg_age desc
+limit 10
+
+#8
+match (m:Movie)<-[:ACTED_IN]-(a:Person)
+with m, avg(m.released-a.born) as averageAge
+order by averageAge asc
+limit 1
+match (m)<-[r:ACTED_IN]-(a)
+return m, r, a
+
+#9
+match (p1:Person {name: "John Cusack"}), (p2:Person {name: "Demi Moore"}), p=SHORTESTPATH((p1)-[*]-(p2))
+return p
+
+#10
+match (p1:Person {name: "Keanu Reeves"}), (p2:Person {name: "Tom Cruise"}), p=SHORTESTPATH((p1)-[*]-(p2))
+return length(p)
+
+#11
+match (p1:Person where p1.name contains "Jim"), (p2:Person where p2.name contains "Kevin"),
+c=SHORTESTPATH((p1)-[*]-(p2))
+return length(c)
+
+#12
+match (p:Person)-[*2]-(jim:Person {name: "Jim Cash"})
+return p.name
+
+#13
+// A abordagem utilizada foi ver qual dos shortestpaths era maior uma vez
+// que não existe uma função que determine qual dos paths é maior já que é impossível
+// determinar esse path maior uma vez que esse valor tende para infinito já que pode
+// "andar aos círculos" antes de alcançar o nó pretendido
+
+match path = ShortestPath((p:Person)-[*]-(kevin:Person{name: "Kevin Bacon"}))
+where p<>kevin
+return length(path)
+order by length(path) desc
+limit 1
+
+#14
+// Mesma abordagem da query anterior
+
+match path = ShortestPath((p1:Person)-[*]-(p2:Person))
+where p1<>p2
+return length(path)
+order by length(path) desc
+limit 1
+
+#15
+match p=SHORTESTPATH((p1:Person)-[*]-(p2:Person))
+where p1<>p2
+return length(p), count(*)
+
+#16
+match p=SHORTESTPATH((p1:Person)-[:ACTED_IN*]-(p2:Person))
+where p1<>p2
+return p1.name, p2.name, avg(length(p))
+order by avg(length(p)) asc
+limit 10
+
+#17
+match (a:Person)-[g:ACTED_IN]->(:Movie)
+where any(role in g.roles where role starts with "Dr." )
+return a.name as Actor, g.roles as Lista_das_roles
+
+#18 Apresente todos os autores dirigidos para cada diretor
+
+// Não consegui remover os duplicados das listas sem instalar bibliotecas externas
+// Usando a biblioteca APOC converteria-se as listas retornadas em sets
+match (d:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(a:Person)
+return d.name as director, collect(a.name) as actors
+
+#19 Liste os 5 filmes com menor elenco e o tamanho do mesmo
+
+match (p:Person)-[:ACTED_IN]->(m:Movie)
+with m, count(p) as size
+return m.title, size
+order by size asc
+limit 5
+
+#20 Identifique o par de filmes cuja distância entre eles é a maior jutamente com essa distância
+
+match path=shortestpath((m1:Movie)-[*]-(m2:Movie))
+where m1 <> m2
+return m1.title, m2.title, length(path)
+order by length(path) desc
+limit 1

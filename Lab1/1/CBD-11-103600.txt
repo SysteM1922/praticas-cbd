@@ -1,0 +1,47 @@
+set user:1 "Jane"
+get user:1
+PING
+DBSIZE
+set testkey hello
+EXISTS testkey
+TYPE TESTKEY
+TYPE testkey
+type testkey
+keys *
+del testkey
+exist testkey
+exists testkey
+type testkey
+scan 0
+scan 0 match "hell*"
+SAVE
+BGSAVE
+config get appendonly
+config get asfdsf
+config get port
+config set appendonly yes
+monitor
+ping
+DBSIZE
+SET Book:3 Pride and Prejudice
+SET Book:3 "Pride and Prejudice"
+GET Book:3
+BGREWRITEAOF
+DBSIZE
+SLAVEOF localhost 6379
+exit
+HMSET Book:1 name "Infinite Jest" author "David Foster Wallace"
+exit
+KEYS *
+HGETALL Book:1
+HSET Book:1 copyrightYear 1996
+exit
+DBSIZE
+del *
+DBSIZE
+GET key:1
+GET Key:1
+LST
+LS
+FLUSHALL
+DBSIZE

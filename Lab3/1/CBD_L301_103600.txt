@@ -1,0 +1,364 @@
+Tutorial from https://www.freecodecamp.org/news/the-apache-cassandra-beginner-tutorial/
+
+Connected to Test Cluster at cassandra:9042.
+[cqlsh 5.0.1 | Cassandra 4.0.7 | CQL spec 3.4.5 | Native protocol v5]
+Use HELP for help.
+cqlsh> help
+
+Documented shell commands:
+===========================
+CAPTURE  CLS          COPY  DESCRIBE  EXPAND  LOGIN   SERIAL  SOURCE   UNICODE
+CLEAR    CONSISTENCY  DESC  EXIT      HELP    PAGING  SHOW    TRACING
+
+CQL help topics:
+================
+AGGREGATES               CREATE_KEYSPACE           DROP_TRIGGER      TEXT
+ALTER_KEYSPACE           CREATE_MATERIALIZED_VIEW  DROP_TYPE         TIME
+ALTER_MATERIALIZED_VIEW  CREATE_ROLE               DROP_USER         TIMESTAMP
+ALTER_TABLE              CREATE_TABLE              FUNCTIONS         TRUNCATE
+ALTER_TYPE               CREATE_TRIGGER            GRANT             TYPES
+ALTER_USER               CREATE_TYPE               INSERT            UPDATE
+APPLY                    CREATE_USER               INSERT_JSON       USE
+ASCII                    DATE                      INT               UUID
+BATCH                    DELETE                    JSON
+BEGIN                    DROP_AGGREGATE            KEYWORDS
+BLOB                     DROP_COLUMNFAMILY         LIST_PERMISSIONS
+BOOLEAN                  DROP_FUNCTION             LIST_ROLES
+COUNTER                  DROP_INDEX                LIST_USERS
+CREATE_AGGREGATE         DROP_KEYSPACE             PERMISSIONS
+CREATE_COLUMNFAMILY      DROP_MATERIALIZED_VIEW    REVOKE
+CREATE_FUNCTION          DROP_ROLE                 SELECT
+CREATE_INDEX             DROP_TABLE                SELECT_JSON
+
+cqlsh> DESCRIBE keyspaces
+
+system_virtual_schema  system_auth   system              system_traces
+system_schema          system_views  system_distributed
+
+cqlsh> CREATE KEYSPACE learn_cassandra
+   ... WITH REPLICATION = {
+   ... 'class' : 'NetworkTopologyStrategy',
+   ... 'datacenter1' : 3
+   ... };
+
+Warnings :
+Your replication factor 3 for keyspace learn_cassandra is higher than the number of nodes 1 for datacenter datacenter1
+
+cqlsh> CREATE TABLE learn_cassandra.users_by_country (
+   ... country text,
+   ... user_email text,
+   ... first_name text,
+   ... last_name text,
+   ... age smallint,
+   ... PRIMARY KEY ((country),user_email)
+   ... );
+cqlsh> INSERT INTO learn_cassandra.users_by_country (country,user_email,first_name,last_name,age)
+   ...   VALUES('US', 'john@email.com', 'John','Wick',55);
+cqlsh> INSERT INTO learn_cassandra.users_by_country (country,user_email,first_name,last_name,age)
+   ...   VALUES('UK', 'peter@email.com', 'Peter','Clark',65);
+cqlsh> INSERT INTO learn_cassandra.users_by_country (country,user_email,first_name,last_name,age)
+   ...   VALUES('UK', 'bob@email.com', 'Bob','Sandler',23);
+cqlsh> INSERT INTO learn_cassandra.users_by_country (country,user_email,first_name,last_name,age)
+   ...   VALUES('UK', 'alice@email.com', 'Alice','Brown',26);
+cqlsh>  SELECT * FROM learn_cassandra.users_by_country WHERE country='US';
+
+ country | user_email     | age | first_name | last_name
+---------+----------------+-----+------------+-----------
+      US | john@email.com |  55 |       John |      Wick
+
+(1 rows)
+cqlsh> SELECT * FROM learn_cassandra.users_by_country
+   ... ;
+
+ country | user_email      | age | first_name | last_name
+---------+-----------------+-----+------------+-----------
+      US |  john@email.com |  55 |       John |      Wick
+      UK | alice@email.com |  26 |      Alice |     Brown
+      UK |   bob@email.com |  23 |        Bob |   Sandler
+      UK | peter@email.com |  65 |      Peter |     Clark
+
+(4 rows)
+cqlsh> CREATE TABLE learn_cassandra.users_by_email (
+   ...     user_email text,
+   ...     country text,
+   ...     first_name text,
+   ...     last_name text,
+   ...     age smallint,
+   ...     PRIMARY KEY (user_email)
+   ... );
+cqlsh> INSERT INTO learn_cassandra.users_by_email (user_email, country,first_name,last_name,age)
+   ...   VALUES('john@email.com', 'US', 'John','Wick',55);
+cqlsh> INSERT INTO learn_cassandra.users_by_email (user_email,country,first_name,last_name,age)
+   ...   VALUES('peter@email.com', 'UK', 'Peter','Clark',65);
+cqlsh> INSERT INTO learn_cassandra.users_by_email (user_email,country,first_name,last_name,age)
+   ...   VALUES('bob@email.com', 'UK', 'Bob','Sandler',23);
+cqlsh> INSERT INTO learn_cassandra.users_by_email (user_email,country,first_name,last_name,age)
+   ...   VALUES('alice@email.com', 'UK', 'Alice','Brown',26);
+cqlsh> SELECT * FROM learn_cassandra.users_by_email WHERE user_email='alice@email.com';
+
+ user_email      | age | country | first_name | last_name
+-----------------+-----+---------+------------+-----------
+ alice@email.com |  26 |      UK |      Alice |     Brown
+
+(1 rows)
+cqlsh> SELECT * FROM learn_cassandra.users_by_email WHERE country='UK';
+InvalidRequest: Error from server: code=2200 [Invalid query] message="Cannot execute this query as it might involve data filtering and thus may have unpredictable performance. If you want to execute this query despite the performance unpredictability, use ALLOW FILTERING"
+cqlsh> SELECT * FROM learn_cassandra.users_by_email WHERE country='UK' ALLOW FILTERING;
+
+ user_email      | age | country | first_name | last_name
+-----------------+-----+---------+------------+-----------
+ alice@email.com |  26 |      UK |      Alice |     Brown
+ peter@email.com |  65 |      UK |      Peter |     Clark
+   bob@email.com |  23 |      UK |        Bob |   Sandler
+
+(3 rows)
+cqlsh> SELECT * FROM learn_cassandra.users_by_country WHERE user_email='alice@email.com';
+InvalidRequest: Error from server: code=2200 [Invalid query] message="Cannot execute this query as it might involve data filtering and thus may have unpredictable performance. If you want to execute this query despite the performance unpredictability, use ALLOW FILTERING"
+cqlsh> SELECT * FROM learn_cassandra.users_by_country WHERE user_email='alice@email.com' ALLOW FILTERING;
+
+ country | user_email      | age | first_name | last_name
+---------+-----------------+-----+------------+-----------
+      UK | alice@email.com |  26 |      Alice |     Brown
+
+(1 rows)
+cqlsh> SELECT * FROM learn_cassandra.users_by_email WHERE age=26 ALLOW FILTERING;
+
+ user_email      | age | country | first_name | last_name
+-----------------+-----+---------+------------+-----------
+ alice@email.com |  26 |      UK |      Alice |     Brown
+
+(1 rows)
+cqlsh> CREATE KEYSPACE learn_cassandra
+   ...   WITH REPLICATION = {
+   ...    'class' : 'NetworkTopologyStrategy',
+   ...    'datacenter1' : 3
+   ...   };
+AlreadyExists: Keyspace 'learn_cassandra' already exists
+cqlsh> CONSISTENCY ALL;
+Consistency level set to ALL.
+cqlsh>    SELECT * FROM learn_cassandra.users_by_country WHERE country='US';
+NoHostAvailable: ('Unable to complete the operation against any hosts', {<Host: 172.18.0.2 datacenter1>: Unavailable('Error from server: code=1000 [Unavailable exception] message="Cannot achieve consistency level ALL" info={\'required_replicas\': 3, \'alive_replicas\': 1, \'consistency\': \'ALL\'}',)})
+cqlsh> CONSISTENCY ONE;
+Consistency level set to ONE.
+cqlsh> SELECT * FROM learn_cassandra.users_by_country WHERE country='US';
+
+ country | user_email     | age | first_name | last_name
+---------+----------------+-----+------------+-----------
+      US | john@email.com |  55 |       John |      Wick
+
+(1 rows)
+cqlsh> CONSISTENCY ALL;
+Consistency level set to ALL.
+cqlsh> SELECT * FROM learn_cassandra.users_by_country WHERE country='US';
+NoHostAvailable: ('Unable to complete the operation against any hosts', {<Host: 172.18.0.2 datacenter1>: Unavailable('Error from server: code=1000 [Unavailable exception] message="Cannot achieve consistency level ALL" info={\'required_replicas\': 3, \'alive_replicas\': 1, \'consistency\': \'ALL\'}',)})
+cqlsh> CONSISTENCY ONE;
+Consistency level set to ONE.
+cqlsh> SELECT * FROM learn_cassandra.users_by_country WHERE country='US';
+
+ country | user_email     | age | first_name | last_name
+---------+----------------+-----+------------+-----------
+      US | john@email.com |  55 |       John |      Wick
+
+(1 rows)
+cqlsh> DESCRIBE TABLE learn_cassandra.users_by_country;
+
+CREATE TABLE learn_cassandra.users_by_country (
+    country text,
+    user_email text,
+    age smallint,
+    first_name text,
+    last_name text,
+    PRIMARY KEY (country, user_email)
+) WITH CLUSTERING ORDER BY (user_email ASC)
+    AND bloom_filter_fp_chance = 0.01
+    AND caching = {'keys': 'ALL', 'rows_per_partition': 'NONE'}
+    AND comment = ''
+    AND compaction = {'class': 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy', 'max_threshold': '32', 'min_threshold': '4'}
+    AND compression = {'chunk_length_in_kb': '16', 'class': 'org.apache.cassandra.io.compress.LZ4Compressor'}
+    AND crc_check_chance = 1.0
+    AND default_time_to_live = 0
+    AND gc_grace_seconds = 864000
+    AND max_index_interval = 2048
+    AND memtable_flush_period_in_ms = 0
+    AND min_index_interval = 128
+    AND speculative_retry = '99p';
+
+cqlsh> CREATE TABLE learn_cassandra.users_by_country_with_leveled_compaction (
+   ...     country text,
+   ...     user_email text,
+   ...     first_name text,
+   ...     last_name text,
+   ...     age smallint,
+   ...     PRIMARY KEY ((country), user_email)
+   ... ) WITH
+   ...   compaction = { 'class' :  'LeveledCompactionStrategy'  };
+cqlsh> DESCRIBE TABLE learn_cassandra.users_by_country_with_leveled_compaction;
+
+CREATE TABLE learn_cassandra.users_by_country_with_leveled_compaction (
+    country text,
+    user_email text,
+    age smallint,
+    first_name text,
+    last_name text,
+    PRIMARY KEY (country, user_email)
+) WITH CLUSTERING ORDER BY (user_email ASC)
+    AND bloom_filter_fp_chance = 0.1
+    AND caching = {'keys': 'ALL', 'rows_per_partition': 'NONE'}
+    AND comment = ''
+    AND compaction = {'class': 'org.apache.cassandra.db.compaction.LeveledCompactionStrategy', 'max_threshold': '32', 'min_threshold': '4'}
+    AND compression = {'chunk_length_in_kb': '16', 'class': 'org.apache.cassandra.io.compress.LZ4Compressor'}
+    AND crc_check_chance = 1.0
+    AND default_time_to_live = 0
+    AND gc_grace_seconds = 864000
+    AND max_index_interval = 2048
+    AND memtable_flush_period_in_ms = 0
+    AND min_index_interval = 128
+    AND speculative_retry = '99p';
+
+cqlsh> CREATE TABLE learn_cassandra.users_by_country_sorted_by_age_asc (
+   ...     country text,
+   ...     user_email text,
+   ...     first_name text,
+   ...     last_name text,
+   ...     age smallint,
+   ...     PRIMARY KEY ((country), age, user_email)
+   ... ) WITH CLUSTERING ORDER BY (age ASC);
+cqlsh> INSERT INTO learn_cassandra.users_by_country_sorted_by_age_asc (country,user_email,first_name,last_name,age)
+   ...   VALUES('US','john@email.com', 'John','Wick',10);
+cqlsh> INSERT INTO learn_cassandra.users_by_country_sorted_by_age_asc (country,user_email,first_name,last_name,age)
+   ...   VALUES('UK', 'peter@email.com', 'Peter','Clark',30);
+cqlsh>
+cqlsh> INSERT INTO learn_cassandra.users_by_country_sorted_by_age_asc (country,user_email,first_name,last_name,age)
+   ...   VALUES('UK', 'bob@email.com', 'Bob','Sandler',20);
+cqlsh> INSERT INTO learn_cassandra.users_by_country_sorted_by_age_asc (country,user_email,first_name,last_name,age)
+   ...   VALUES('UK', 'alice@email.com', 'Alice','Brown',40);
+cqlsh> SELECT * FROM learn_cassandra.users_by_country_sorted_by_age_asc WHERE country='UK';
+
+ country | age | user_email      | first_name | last_name
+---------+-----+-----------------+------------+-----------
+      UK |  20 |   bob@email.com |        Bob |   Sandler
+      UK |  30 | peter@email.com |      Peter |     Clark
+      UK |  40 | alice@email.com |      Alice |     Brown
+
+(3 rows)
+cqlsh> CREATE TABLE learn_cassandra.todo_by_user_email (
+   ...     user_email text,
+   ...     name text,
+   ...     creation_date timestamp,
+   ...     PRIMARY KEY ((user_email), creation_date)
+   ... ) WITH CLUSTERING ORDER BY (creation_date DESC)
+   ... AND compaction = { 'class' :  'LeveledCompactionStrategy'  };
+cqlsh> CREATE TABLE learn_cassandra.todos_shared_by_target_user_email (
+   ...     target_user_email text,
+   ...     source_user_email text,
+   ...     creation_date timestamp,
+   ...     name text,
+   ...     PRIMARY KEY ((target_user_email), creation_date)
+   ... ) WITH CLUSTERING ORDER BY (creation_date DESC)
+   ... AND compaction = { 'class' :  'LeveledCompactionStrategy'  };
+cqlsh> CREATE TABLE learn_cassandra.todos_shared_by_source_user_email (
+   ...     target_user_email text,
+   ...     source_user_email text,
+   ...     creation_date timestamp,
+   ...     name text,
+   ...     PRIMARY KEY ((source_user_email), creation_date)
+   ... ) WITH CLUSTERING ORDER BY (creation_date DESC)
+   ... AND compaction = { 'class' :  'LeveledCompactionStrategy'  };
+cqlsh> BEGIN BATCH
+   ...   INSERT INTO learn_cassandra.todo_by_user_email (user_email,creation_date,name) VALUES('alice@email.com', toTimestamp(now()), 'My first todo entry')
+   ...
+   ...   INSERT INTO learn_cassandra.todos_shared_by_target_user_email (target_user_email, source_user_email,creation_date,name) VALUES('bob@email.com', 'alice@email.com',toTimestamp(now()), 'My first todo entry')
+   ...
+   ...   INSERT INTO learn_cassandra.todos_shared_by_source_user_email (target_user_email, source_user_email,creation_date,name) VALUES('alice@email.com', 'bob@email.com', toTimestamp(now()), 'My first todo entry')
+   ...
+   ... APPLY BATCH;
+cqlsh> SELECT * FROM learn_cassandra.todos_shared_by_target_user_email WHERE target_user_email='bob@email.com';
+
+ target_user_email | creation_date                   | name                | source_user_email
+-------------------+---------------------------------+---------------------+-------------------
+     bob@email.com | 2022-11-30 01:25:39.140000+0000 | My first todo entry |   alice@email.com
+
+(1 rows)
+cqlsh> INSERT INTO learn_cassandra.todo_by_user_email (user_email,creation_date,name) VALUES('john@email.com', toTimestamp(now()), 'This entry should be removed soon') USING TTL 60;
+cqlsh> SELECT * FROM learn_cassandra.todo_by_user_email WHERE user_email='john@email.com';
+
+ user_email     | creation_date                   | name
+----------------+---------------------------------+-----------------------------------
+ john@email.com | 2022-11-30 01:26:48.609000+0000 | This entry should be removed soon
+
+(1 rows)
+cqlsh> SELECT * FROM learn_cassandra.todo_by_user_email WHERE user_email='john@email.com';
+
+ user_email     | creation_date                   | name
+----------------+---------------------------------+-----------------------------------
+ john@email.com | 2022-11-30 01:26:48.609000+0000 | This entry should be removed soon
+
+(1 rows)
+cqlsh> SELECT TTL(name) FROM learn_cassandra.todo_by_user_email WHERE user_email='john@email.com';
+
+ ttl(name)
+-----------
+        11
+
+(1 rows)
+cqlsh> SELECT TTL(name) FROM learn_cassandra.todo_by_user_email WHERE user_email='john@email.com';
+
+ ttl(name)
+-----------
+         4
+
+(1 rows)
+cqlsh> SELECT TTL(name) FROM learn_cassandra.todo_by_user_email WHERE user_email='john@email.com';
+
+ ttl(name)
+-----------
+         2
+
+(1 rows)
+cqlsh> SELECT TTL(name) FROM learn_cassandra.todo_by_user_email WHERE user_email='john@email.com';
+
+ user_email | creation_date | name
+------------+---------------+------
+
+(0 rows)
+cqlsh> SELECT * FROM learn_cassandra.todo_by_user_email WHERE user_email='john@email.com';
+
+ user_email | creation_date | name
+------------+---------------+------
+
+(0 rows)
+cqlsh> INSERT INTO learn_cassandra.todo_by_user_email (user_email, creation_date, name) VALUES('john@email.com', '2021-03-14 16:07:19.622+0000', 'Insert query');
+cqlsh> UPDATE learn_cassandra.todo_by_user_email SET
+   ...     name = 'Update query'
+   ...   WHERE user_email = 'john@email.com' AND creation_date = '2021-03-14 16:10:19.622+0000';
+cqlsh> SELECT * FROM learn_cassandra.todo_by_user_email WHERE user_email='john@email.com';
+
+ user_email     | creation_date                   | name
+----------------+---------------------------------+--------------
+ john@email.com | 2021-03-14 16:10:19.622000+0000 | Update query
+ john@email.com | 2021-03-14 16:07:19.622000+0000 | Insert query
+
+(2 rows)
+cqlsh> INSERT INTO learn_cassandra.todo_by_user_email (user_email,creation_date,name) VALUES('john@email.com', '2021-03-14 16:07:19.622+0000', 'Insert query updated');
+cqlsh> SELECT * FROM learn_cassandra.todo_by_user_email WHERE user_email='john@email.com';
+
+ user_email     | creation_date                   | name
+----------------+---------------------------------+----------------------
+ john@email.com | 2021-03-14 16:10:19.622000+0000 |         Update query
+ john@email.com | 2021-03-14 16:07:19.622000+0000 | Insert query updated
+
+(2 rows)
+cqlsh> UPDATE learn_cassandra.todo_by_user_email SET
+   ...     name = 'Update query with LWT'
+   ...   WHERE user_email = 'john@email.com' AND creation_date = '2021-03-14 16:07:19.622+0000' IF EXISTS;
+NoHostAvailable: ('Unable to complete the operation against any hosts', {<Host: 172.18.0.2 datacenter1>: Unavailable('Error from server: code=1000 [Unavailable exception] message="Cannot achieve consistency level QUORUM" info={\'required_replicas\': 2, \'alive_replicas\': 1, \'consistency\': \'QUORUM\'}',)})
+cqlsh> UPDATE learn_cassandra.todo_by_user_email SET
+   ...     name = 'Update query with LWT'
+   ...   WHERE user_email = 'john@email.com' AND creation_date = '2021-03-14 16:07:19.622+0000' IF NOT EXISTS;
+SyntaxException: <Error from server: code=2000 [Syntax error in CQL query] message="line 3:92 no viable alternative at input 'NOT' (...AND creation_date = '2021-03-14 16:07:19.622+0000' IF [NOT]...)">
+cqlsh> INSERT INTO learn_cassandra.todo_by_user_email (user_email,creation_date,name) VALUES('john@email.com', toTimestamp(now()), 'Yet another entry') IF NOT EXISTS;
+NoHostAvailable: ('Unable to complete the operation against any hosts', {<Host: 172.18.0.2 datacenter1>: Unavailable('Error from server: code=1000 [Unavailable exception] message="Cannot achieve consistency level QUORUM" info={\'required_replicas\': 2, \'alive_replicas\': 1, \'consistency\': \'QUORUM\'}',)})
+cqlsh> UPDATE learn_cassandra.todo_by_user_email SET
+   ...     name = 'Update query with LWT'
+   ...   WHERE user_email = 'john@email.com' AND creation_date = '2021-03-14 16:07:19.622000+0000' IF EXISTS;
+NoHostAvailable: ('Unable to complete the operation against any hosts', {<Host: 172.18.0.2 datacenter1>: Unavailable('Error from server: code=1000 [Unavailable exception] message="Cannot achieve consistency level QUORUM" info={\'required_replicas\': 2, \'alive_replicas\': 1, \'consistency\': \'QUORUM\'}',)})

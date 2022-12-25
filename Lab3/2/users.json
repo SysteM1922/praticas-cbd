@@ -1,0 +1,140 @@
+{
+	"id": "a16c5dd1-4650-4879-ba44-830365ef7735",
+	"email": "guilhermeantunes@gmail.com",
+	"name": "GuilhermeAntunes",
+	"registered_date": "2015-01-0100:00:00.000Z",
+	"username": "user1"
+}
+{
+	"id": "b0ca19f1-dee5-4778-95ed-52c265b299d0",
+	"email": "bernardosilva@gmail.com",
+	"name": "BernardoSilva",
+	"registered_date": "2020-02-0111:02:34.000Z",
+	"username": "user18"
+}
+{
+	"id": "215ac6bb-4056-463a-be8f-7de28e7c623f",
+	"email": "joaofelix@gmail.com",
+	"name": "JoãoFélix",
+	"registered_date": "2019-12-1207:40:12.000Z",
+	"username": "user16"
+}
+{
+	"id": "ef700fb5-0a7d-4517-8c37-c11176b93a1e",
+	"email": "ritasilva@gmail.com",
+	"name": "RitaSilva",
+	"registered_date": "2016-02-2312:33:16.000Z",
+	"username": "user2"
+}
+{
+	"id": "46901da4-4eed-4256-9f93-653a0892f069",
+	"email": "rubenneves@gmail.com",
+	"name": "RúbenNeves",
+	"registered_date": "2020-04-2315:24:56.000Z",
+	"username": "user20"
+}
+{
+	"id": "dc2d21ed-a835-4aa7-8003-fce63c104cc0",
+	"email": "joaosantos@gmail.com",
+	"name": "JoãoSantos",
+	"registered_date": "2016-03-0105:24:12.000Z",
+	"username": "user3"
+}
+{
+	"id": "713bef7a-7c82-4fe7-9e35-96b251226950",
+	"email": "mariaoliveira@gmail.com",
+	"name": "MariaOliveira",
+	"registered_date": "2019-05-1209:54:29.000Z",
+	"username": "user4"
+}
+{
+	"id": "e5a7b077-e06a-4f90-85fd-4dbfc50d359d",
+	"email": "diogojota@gmail.com",
+	"name": "DiogoJota",
+	"registered_date": "2020-03-1213:13:45.000Z",
+	"username": "user19"
+}
+{
+	"id": "2d8005e0-27c9-4bed-84c6-154746989505",
+	"email": "pedroalmeida@gmail.com",
+	"name": "PedroAlmeida",
+	"registered_date": "2020-01-3010:04:47.000Z",
+	"username": "user5"
+}
+{
+	"id": "944a0a54-0dc3-409f-b10a-f53ea68e62af",
+	"email": "fernandosilva@gmail.com",
+	"name": "FernandoSilva",
+	"registered_date": "2020-02-0111:32:28.000Z",
+	"username": "user6"
+}
+{
+	"id": "9fad9e15-7e9c-48f7-9fb2-d5c869cab383",
+	"email": "renatosanches@gmail.com",
+	"name": "RenatoSanches",
+	"registered_date": "2019-11-0105:29:56.000Z",
+	"username": "user15"
+}
+{
+	"id": "7526751f-5926-4bdf-8d9f-8ace1e230645",
+	"email": "anaalmeida@gmail.com",
+	"name": "AnaAlmeida",
+	"registered_date": "2017-03-1213:45:12.000Z",
+	"username": "user7"
+}
+{
+	"id": "875a8b52-5f6c-4594-aebe-49814493985f",
+	"email": "paulorebelo@gmail.com",
+	"name": "PauloRebelo",
+	"registered_date": "2018-04-2315:12:34.000Z",
+	"username": "user8"
+}
+{
+	"id": "904b67c3-d751-4487-9aa5-666acef1c434",
+	"email": "marianacosta@gmail.com",
+	"name": "MarianaCosta",
+	"registered_date": "2019-05-0117:23:45.000Z",
+	"username": "user9"
+}
+{
+	"id": "14b93520-fec1-49c1-b4ea-6e5c97cfaef4",
+	"email": "ricardoquaresma@gmail.com",
+	"name": "RicardoQuaresma",
+	"registered_date": "2018-06-1219:34:56.000Z",
+	"username": "user10"
+}
+{
+	"id": "f12db148-fbac-4202-bcfa-962c684a58f2",
+	"email": "davidjerumenha@gmail.com",
+	"name": "DavidJerumenha",
+	"registered_date": "2019-07-2321:45:12.000Z",
+	"username": "user11"
+}
+{
+	"id": "1e898e29-7c27-491f-84f3-191f140f4d0a",
+	"email": "ruipatricio@gmail.com",
+	"name": "RuiPatrício",
+	"registered_date": "2019-08-0123:56:23.000Z",
+	"username": "user12"
+}
+{
+	"id": "3f6ebd5c-b428-453c-ab4b-d97df148c65c",
+	"email": "brunofernandes@gmail.com",
+	"name": "BrunoFernandes",
+	"registered_date": "2019-09-1201:07:34.000Z",
+	"username": "user13"
+}
+{
+	"id": "e480519d-b1e5-4e4d-8180-fd5097e9bbac",
+	"email": "cristianoaveiro@gmail.com",
+	"name": "CristianoAveiro",
+	"registered_date": "2019-10-2303:18:45.000Z",
+	"username": "user14"
+}
+{
+	"id": "b8d6cb90-1302-45cb-86eb-fd4654d47c76",
+	"email": "rubendias@gmail.com",
+	"name": "RúbenDias",
+	"registered_date": "2020-01-2309:51:23.000Z",
+	"username": "user17"
+}

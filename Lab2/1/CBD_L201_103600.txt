@@ -1,0 +1,417 @@
+> use
+switched to db
+> db
+mydb
+> show dbs
+admin    40.00 KiB
+config   72.00 KiB
+local    72.00 KiB
+mydb    200.00 KiB
+test      8.00 KiB
+> db.movie.insert({"name":"tutorials point"})
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("6359282b206d067c0369608e") }
+}
+> show dbs
+admin    40.00 KiB
+config   72.00 KiB
+local    72.00 KiB
+mydb    208.00 KiB
+test      8.00 KiB
+> db.dropDatabase()
+{ ok: 1, dropped: 'mydb' }
+> show dbs
+admin   40.00 KiB
+config  72.00 KiB
+local   72.00 KiB
+test     8.00 KiB
+> db.createCollection("mycollection")
+{ ok: 1 }
+> show collections
+mycollection
+> db.createCollection("mycol", {capped:true, autoIndexID : true, size : 6142800, max : 10000})
+MongoServerError: BSON field 'create.autoIndexID' is an unknown field.
+> db.tutorialspoint.insert({"name" : "tutorialspoint"})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("6359282c206d067c0369608f") }
+}
+> show collections
+mycollection
+tutorialspoint
+> db.mycollection.drop()
+true
+> show collections
+tutorialspoint
+> db.users.insert({
+...     _id : ObjectId("507f191e810c19729de860ea"),
+...     title : "MongoDB Overview",
+...     description : "MongoDB is no sql database",
+...     by : "tutorials point",
+...     url : "http://www.tutorialspoint.com",
+...     tags: ["mongoDB", "database", "NoSQL"],
+...     likes: 100
+... })
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("507f191e810c19729de860ea") }
+}
+> db.post.insert([
+... {
+...     title : "MongoDB Overview",
+...     description : "MongoDB is no sql database",
+...     by : "tutorials point",
+...     url : "http://www.tutorialspoint.com",
+...     tags: ["mongoDB", "database", "NoSQL"],
+...     likes: 100
+... },
+... {
+...     title : "NoSQL Database",
+...     description : "NoSQL database doesn't have tables",
+...     by : "tutorials point",
+...     url : "http://www.tutorialspoint.com",
+...     tags: ["mongoDB", "database", "NoSQL"],
+...     likes: 20,
+...     comments:[
+...     {
+...         user:"user1",
+...         message:"My first comment",
+...         dataCreated: new Date(2013,11,10,2,35),
+...         like: 0
+...     }
+...     ]
+... }
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("6359282c206d067c03696090"),
+    '1': ObjectId("6359282c206d067c03696091")
+  }
+}
+> db.createCollection("empDetails")
+{ ok: 1 }
+> db.empDetails.insertOne(
+... {
+...     First_Name: "Radhika",
+...     Last_Name: "Sharma",
+...     Date_Of_Birth: "1995-09-26",
+...     e_mail: "radhika_sharma.123@gmail.com",
+...     phone: "9848022338"
+... })
+{
+  acknowledged: true,
+  insertedId: ObjectId("6359282c206d067c03696092")
+}
+> db.empDetails.insertMany(
+...     [
+...         {
+...             First_Name: "Radhika",
+...             Last_Name: "Sharma",
+...             Date_Of_Birth: "1995-09-26",
+...             e_mail: "radhika_sharma.123@gmail.com",
+...             phone: "9000012345"
+...         },
+...         {
+...             First_Name: "Rachel",
+...             Last_Name: "Christopher",
+...             Date_Of_Birth: "1990-02-16",
+...             e_mail: "Rachel_Christopher.123@gmail.com",
+...             phone: "9000054321"
+...         },
+...         {
+...             First_Name: "Fathima",
+...             Last_Name: "Sheik",
+...             Date_Of_Birth: "1990-02-16",
+...             e_mail: "Fathima_Sheik.123@gamil.com",
+...             phone: "9000054321"
+...         }
+...     ]
+... )
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("6359282d206d067c03696093"),
+    '1': ObjectId("6359282d206d067c03696094"),
+    '2': ObjectId("6359282d206d067c03696095")
+  }
+}
+> db.createCollection("mycol")
+{ ok: 1 }
+> db.mycol.insert([
+... {
+...     title : "MongoDB Overview",
+...     description : "MongoDB is no sql database",
+...     by : "tutorials point",
+...     url : "http://www.tutorialspoint.com",
+...     tags: ["mongoDB", "database", "NoSQL"],
+...     likes: 100
+... },
+... {
+...     title : "NoSQL Database",
+...     description : "NoSQL database doesn't have tables",
+...     by : "tutorials point",
+...     url : "http://www.tutorialspoint.com",
+...     tags: ["mongoDB", "database", "NoSQL"],
+...     likes: 20,
+...     comments:[
+...     {
+...         user:"user1",
+...         message:"My first comment",
+...         dataCreated: new Date(2013,11,10,2,35),
+...         like: 0
+...     }
+...     ]
+... }
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("6359282d206d067c03696096"),
+    '1': ObjectId("6359282d206d067c03696097")
+  }
+}
+> db.mycol.find()
+[
+  {
+    _id: ObjectId("6359282d206d067c03696096"),
+    title: 'MongoDB Overview',
+    description: 'MongoDB is no sql database',
+    by: 'tutorials point',
+    url: 'http://www.tutorialspoint.com',
+    tags: [ 'mongoDB', 'database', 'NoSQL' ],
+    likes: 100
+  },
+  {
+    _id: ObjectId("6359282d206d067c03696097"),
+    title: 'NoSQL Database',
+    description: "NoSQL database doesn't have tables",
+    by: 'tutorials point',
+    url: 'http://www.tutorialspoint.com',
+    tags: [ 'mongoDB', 'database', 'NoSQL' ],
+    likes: 20,
+    comments: [
+      {
+        user: 'user1',
+        message: 'My first comment',
+        dataCreated: ISODate("2013-12-10T02:35:00.000Z"),
+        like: 0
+      }
+    ]
+  }
+]
+> db.mycol.find().pretty()
+[
+  {
+    _id: ObjectId("6359282d206d067c03696096"),
+    title: 'MongoDB Overview',
+    description: 'MongoDB is no sql database',
+    by: 'tutorials point',
+    url: 'http://www.tutorialspoint.com',
+    tags: [ 'mongoDB', 'database', 'NoSQL' ],
+    likes: 100
+  },
+  {
+    _id: ObjectId("6359282d206d067c03696097"),
+    title: 'NoSQL Database',
+    description: "NoSQL database doesn't have tables",
+    by: 'tutorials point',
+    url: 'http://www.tutorialspoint.com',
+    tags: [ 'mongoDB', 'database', 'NoSQL' ],
+    likes: 20,
+    comments: [
+      {
+        user: 'user1',
+        message: 'My first comment',
+        dataCreated: ISODate("2013-12-10T02:35:00.000Z"),
+        like: 0
+      }
+    ]
+  }
+]
+> db.mycol.findOne({title: "MongoDB Overview"})
+{
+  _id: ObjectId("6359282d206d067c03696096"),
+  title: 'MongoDB Overview',
+  description: 'MongoDB is no sql database',
+  by: 'tutorials point',
+  url: 'http://www.tutorialspoint.com',
+  tags: [ 'mongoDB', 'database', 'NoSQL' ],
+  likes: 100
+}
+> db.mycol.find({$and:[{"by":"tutorials point"},{"title":"MongoDB Overview"}]}).pretty()
+[
+  {
+    _id: ObjectId("6359282d206d067c03696096"),
+    title: 'MongoDB Overview',
+    description: 'MongoDB is no sql database',
+    by: 'tutorials point',
+    url: 'http://www.tutorialspoint.com',
+    tags: [ 'mongoDB', 'database', 'NoSQL' ],
+    likes: 100
+  }
+]
+> db.mycol.find({$or: [{"by":"tutorials point"},{"title":"MongoDB Overview"}]}).pretty()
+[
+  {
+    _id: ObjectId("6359282d206d067c03696096"),
+    title: 'MongoDB Overview',
+    description: 'MongoDB is no sql database',
+    by: 'tutorials point',
+    url: 'http://www.tutorialspoint.com',
+    tags: [ 'mongoDB', 'database', 'NoSQL' ],
+    likes: 100
+  },
+  {
+    _id: ObjectId("6359282d206d067c03696097"),
+    title: 'NoSQL Database',
+    description: "NoSQL database doesn't have tables",
+    by: 'tutorials point',
+    url: 'http://www.tutorialspoint.com',
+    tags: [ 'mongoDB', 'database', 'NoSQL' ],
+    likes: 20,
+    comments: [
+      {
+        user: 'user1',
+        message: 'My first comment',
+        dataCreated: ISODate("2013-12-10T02:35:00.000Z"),
+        like: 0
+      }
+    ]
+  }
+]
+> db.mycol.find({"likes":{$gt:10}, $or:[{"by":"tutorials point"}, {"title": "MogoDB Overview"}]}).pretty()
+[
+  {
+    _id: ObjectId("6359282d206d067c03696096"),
+    title: 'MongoDB Overview',
+    description: 'MongoDB is no sql database',
+    by: 'tutorials point',
+    url: 'http://www.tutorialspoint.com',
+    tags: [ 'mongoDB', 'database', 'NoSQL' ],
+    likes: 100
+  },
+  {
+    _id: ObjectId("6359282d206d067c03696097"),
+    title: 'NoSQL Database',
+    description: "NoSQL database doesn't have tables",
+    by: 'tutorials point',
+    url: 'http://www.tutorialspoint.com',
+    tags: [ 'mongoDB', 'database', 'NoSQL' ],
+    likes: 20,
+    comments: [
+      {
+        user: 'user1',
+        message: 'My first comment',
+        dataCreated: ISODate("2013-12-10T02:35:00.000Z"),
+        like: 0
+      }
+    ]
+  }
+]
+> db.empDetails.find({$nor:[{First_Name:"Radhika"},{Last_Name:"Christopher"}]}).pretty()
+[
+  {
+    _id: ObjectId("6359282d206d067c03696095"),
+    First_Name: 'Fathima',
+    Last_Name: 'Sheik',
+    Date_Of_Birth: '1990-02-16',
+    e_mail: 'Fathima_Sheik.123@gamil.com',
+    phone: '9000054321'
+  }
+]
+> db.empDetails.find({"Age":{$not:{$gt:"25"}}})
+[
+  {
+    _id: ObjectId("6359282c206d067c03696092"),
+    First_Name: 'Radhika',
+    Last_Name: 'Sharma',
+    Date_Of_Birth: '1995-09-26',
+    e_mail: 'radhika_sharma.123@gmail.com',
+    phone: '9848022338'
+  },
+  {
+    _id: ObjectId("6359282d206d067c03696093"),
+    First_Name: 'Radhika',
+    Last_Name: 'Sharma',
+    Date_Of_Birth: '1995-09-26',
+    e_mail: 'radhika_sharma.123@gmail.com',
+    phone: '9000012345'
+  },
+  {
+    _id: ObjectId("6359282d206d067c03696094"),
+    First_Name: 'Rachel',
+    Last_Name: 'Christopher',
+    Date_Of_Birth: '1990-02-16',
+    e_mail: 'Rachel_Christopher.123@gmail.com',
+    phone: '9000054321'
+  },
+  {
+    _id: ObjectId("6359282d206d067c03696095"),
+    First_Name: 'Fathima',
+    Last_Name: 'Sheik',
+    Date_Of_Birth: '1990-02-16',
+    e_mail: 'Fathima_Sheik.123@gamil.com',
+    phone: '9000054321'
+  }
+]
+> db.mycol.update({"title":"MongoDB Overview"},{$set:{"title":"New MongoDB Tutorial"}})
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+> db.mycol.find()
+[
+  {
+    _id: ObjectId("6359282d206d067c03696096"),
+    title: 'New MongoDB Tutorial',
+    description: 'MongoDB is no sql database',
+    by: 'tutorials point',
+    url: 'http://www.tutorialspoint.com',
+    tags: [ 'mongoDB', 'database', 'NoSQL' ],
+    likes: 100
+  },
+  {
+    _id: ObjectId("6359282d206d067c03696097"),
+    title: 'NoSQL Database',
+    description: "NoSQL database doesn't have tables",
+    by: 'tutorials point',
+    url: 'http://www.tutorialspoint.com',
+    tags: [ 'mongoDB', 'database', 'NoSQL' ],
+    likes: 20,
+    comments: [
+      {
+        user: 'user1',
+        message: 'My first comment',
+        dataCreated: ISODate("2013-12-10T02:35:00.000Z"),
+        like: 0
+      }
+    ]
+  }
+]
+> db.mycol.update({"title":"MongoDB Overview"},{$set:{"title":"New MongoDB Tutorial"}},{multi:true})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+> show dbs
+admin   40.00 KiB
+config  72.00 KiB
+local   72.00 KiB
+mydb    40.00 KiB
+test     8.00 KiB
+> show collections
+empDetails
+mycol
+post
+tutorialspoint
+users

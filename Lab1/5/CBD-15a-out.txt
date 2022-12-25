@@ -1,0 +1,238 @@
+Utilizador: Gui
+1. Adicionar Contacto
+2. Remover Contacto
+3. Listar Contactos
+4. Enviar Mensagem
+5. Ver Mensagens
+6. Log out
+7. Sair
+
+Opção: 1
+Adicionar Contacto
+
+Novo Contacto: Daniel
+1. Adicionar Contacto
+2. Remover Contacto
+3. Listar Contactos
+4. Enviar Mensagem
+5. Ver Mensagens
+6. Log out
+7. Sair
+
+Opção: 3
+Listar Contactos
+
+Daniel
+
+1. Adicionar Contacto
+2. Remover Contacto
+3. Listar Contactos
+4. Enviar Mensagem
+5. Ver Mensagens
+6. Log out
+7. Sair
+
+Opção: 4
+Enviar Mensagem
+
+Destinatário: Daniel
+Mensagem: Teste
+1. Adicionar Contacto
+2. Remover Contacto
+3. Listar Contactos
+4. Enviar Mensagem
+5. Ver Mensagens
+6. Log out
+7. Sair
+
+Opção: 5
+Ver Mensagens
+
+Contacto: Daniel
+Gui (04/10/2022 22:04:37): Teste
+1. Adicionar Contacto
+2. Remover Contacto
+3. Listar Contactos
+4. Enviar Mensagem
+5. Ver Mensagens
+6. Log out
+7. Sair
+
+Opção: 6
+Log out
+
+Utilizador: Daniel
+1. Adicionar Contacto
+2. Remover Contacto
+3. Listar Contactos
+4. Enviar Mensagem
+5. Ver Mensagens
+6. Log out
+7. Sair
+
+Opção: 3
+Listar Contactos
+
+
+1. Adicionar Contacto
+2. Remover Contacto
+3. Listar Contactos
+4. Enviar Mensagem
+5. Ver Mensagens
+6. Log out
+7. Sair
+
+Opção: 5
+Ver Mensagens
+
+Contacto: Gui
+Gui (04/10/2022 22:04:37): Teste
+1. Adicionar Contacto
+2. Remover Contacto
+3. Listar Contactos
+4. Enviar Mensagem
+5. Ver Mensagens
+6. Log out
+7. Sair
+
+Opção: 1
+Adicionar Contacto
+
+Novo Contacto: Gui
+1. Adicionar Contacto
+2. Remover Contacto
+3. Listar Contactos
+4. Enviar Mensagem
+5. Ver Mensagens
+6. Log out
+7. Sair
+
+Opção: 3
+Listar Contactos
+
+Gui
+
+1. Adicionar Contacto
+2. Remover Contacto
+3. Listar Contactos
+4. Enviar Mensagem
+5. Ver Mensagens
+6. Log out
+7. Sair
+
+Opção: 5
+Ver Mensagens
+
+Contacto: Gui4
+1. Adicionar Contacto
+2. Remover Contacto
+3. Listar Contactos
+4. Enviar Mensagem
+5. Ver Mensagens
+6. Log out
+7. Sair
+
+Opção: 5
+Ver Mensagens
+
+Contacto: Gui
+Gui (04/10/2022 22:04:37): Teste
+1. Adicionar Contacto
+2. Remover Contacto
+3. Listar Contactos
+4. Enviar Mensagem
+5. Ver Mensagens
+6. Log out
+7. Sair
+
+Opção: 4
+Enviar Mensagem
+
+Destinatário: Gui
+Mensagem: Teste2
+1. Adicionar Contacto
+2. Remover Contacto
+3. Listar Contactos
+4. Enviar Mensagem
+5. Ver Mensagens
+6. Log out
+7. Sair
+
+Opção: 5
+Ver Mensagens
+
+Contacto: Gui
+Gui (04/10/2022 22:04:37): Teste
+Daniel (04/10/2022 22:05:29): Teste2
+1. Adicionar Contacto
+2. Remover Contacto
+3. Listar Contactos
+4. Enviar Mensagem
+5. Ver Mensagens
+6. Log out
+7. Sair
+
+Opção: 6
+Log out
+
+Utilizador: Gui 
+1. Adicionar Contacto
+2. Remover Contacto
+3. Listar Contactos
+4. Enviar Mensagem
+5. Ver Mensagens
+6. Log out
+7. Sair
+
+Opção: 3
+Listar Contactos
+
+Daniel
+
+1. Adicionar Contacto
+2. Remover Contacto
+3. Listar Contactos
+4. Enviar Mensagem
+5. Ver Mensagens
+6. Log out
+7. Sair
+
+Opção: 2
+Remover Contacto
+
+Contacto a remover: Daniel
+1. Adicionar Contacto
+2. Remover Contacto
+3. Listar Contactos
+4. Enviar Mensagem
+5. Ver Mensagens
+6. Log out
+7. Sair
+
+Opção: 3
+Listar Contactos
+
+
+1. Adicionar Contacto
+2. Remover Contacto
+3. Listar Contactos
+4. Enviar Mensagem
+5. Ver Mensagens
+6. Log out
+7. Sair
+
+Opção: 5
+Ver Mensagens
+
+Contacto: Daniel    
+Gui (04/10/2022 22:04:37): Teste
+Daniel (04/10/2022 22:05:29): Teste2
+1. Adicionar Contacto
+2. Remover Contacto
+3. Listar Contactos
+4. Enviar Mensagem
+5. Ver Mensagens
+6. Log out
+7. Sair
+
+Opção: 7

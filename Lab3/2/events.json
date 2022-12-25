@@ -1,0 +1,420 @@
+{
+	"user_id": "a16c5dd1-4650-4879-ba44-830365ef7735",
+	"video_id": "567066fa-a4f5-45fa-a9d7-9b391b6be2a6",
+	"event_type": "pause",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 720
+}
+{
+	"user_id": "a16c5dd1-4650-4879-ba44-830365ef7735",
+	"video_id": "567066fa-a4f5-45fa-a9d7-9b391b6be2a6",
+	"event_type": "play",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 600
+}
+{
+	"user_id": "a16c5dd1-4650-4879-ba44-830365ef7735",
+	"video_id": "567066fa-a4f5-45fa-a9d7-9b391b6be2a6",
+	"event_type": "stop",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 1200
+}
+{
+	"user_id": "b0ca19f1-dee5-4778-95ed-52c265b299d0",
+	"video_id": "4a02a0d6-d5ab-4922-a75b-645fd660dc70",
+	"event_type": "pause",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 737
+}
+{
+	"user_id": "b0ca19f1-dee5-4778-95ed-52c265b299d0",
+	"video_id": "4a02a0d6-d5ab-4922-a75b-645fd660dc70",
+	"event_type": "play",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 617
+}
+{
+	"user_id": "b0ca19f1-dee5-4778-95ed-52c265b299d0",
+	"video_id": "4a02a0d6-d5ab-4922-a75b-645fd660dc70",
+	"event_type": "stop",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 1217
+}
+{
+	"user_id": "215ac6bb-4056-463a-be8f-7de28e7c623f",
+	"video_id": "663e59ee-3fb2-4177-a2f3-a56485e08a4d",
+	"event_type": "pause",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 735
+}
+{
+	"user_id": "215ac6bb-4056-463a-be8f-7de28e7c623f",
+	"video_id": "663e59ee-3fb2-4177-a2f3-a56485e08a4d",
+	"event_type": "play",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 615
+}
+{
+	"user_id": "215ac6bb-4056-463a-be8f-7de28e7c623f",
+	"video_id": "663e59ee-3fb2-4177-a2f3-a56485e08a4d",
+	"event_type": "stop",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 1215
+}
+{
+	"user_id": "ef700fb5-0a7d-4517-8c37-c11176b93a1e",
+	"video_id": "663e59ee-3fb2-4177-a2f3-a56485e08a4d",
+	"event_type": "pause",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 721
+}
+{
+	"user_id": "ef700fb5-0a7d-4517-8c37-c11176b93a1e",
+	"video_id": "663e59ee-3fb2-4177-a2f3-a56485e08a4d",
+	"event_type": "play",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 601
+}
+{
+	"user_id": "ef700fb5-0a7d-4517-8c37-c11176b93a1e",
+	"video_id": "663e59ee-3fb2-4177-a2f3-a56485e08a4d",
+	"event_type": "stop",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 1201
+}
+{
+	"user_id": "46901da4-4eed-4256-9f93-653a0892f069",
+	"video_id": "172a2dae-3cce-4243-b7d2-f48dd117d14d",
+	"event_type": "pause",
+	"event_date": "2022-07-3014:20:00.000Z",
+	"video_time": 739
+}
+{
+	"user_id": "46901da4-4eed-4256-9f93-653a0892f069",
+	"video_id": "172a2dae-3cce-4243-b7d2-f48dd117d14d",
+	"event_type": "play",
+	"event_date": "2022-07-3014:20:00.000Z",
+	"video_time": 619
+}
+{
+	"user_id": "46901da4-4eed-4256-9f93-653a0892f069",
+	"video_id": "172a2dae-3cce-4243-b7d2-f48dd117d14d",
+	"event_type": "stop",
+	"event_date": "2022-07-3014:20:00.000Z",
+	"video_time": 1219
+}
+{
+	"user_id": "dc2d21ed-a835-4aa7-8003-fce63c104cc0",
+	"video_id": "1d269a9e-01bf-4467-b77f-7bacfba2ad5b",
+	"event_type": "pause",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 722
+}
+{
+	"user_id": "dc2d21ed-a835-4aa7-8003-fce63c104cc0",
+	"video_id": "1d269a9e-01bf-4467-b77f-7bacfba2ad5b",
+	"event_type": "play",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 602
+}
+{
+	"user_id": "dc2d21ed-a835-4aa7-8003-fce63c104cc0",
+	"video_id": "1d269a9e-01bf-4467-b77f-7bacfba2ad5b",
+	"event_type": "stop",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 1202
+}
+{
+	"user_id": "713bef7a-7c82-4fe7-9e35-96b251226950",
+	"video_id": "4a02a0d6-d5ab-4922-a75b-645fd660dc70",
+	"event_type": "pause",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 723
+}
+{
+	"user_id": "713bef7a-7c82-4fe7-9e35-96b251226950",
+	"video_id": "4a02a0d6-d5ab-4922-a75b-645fd660dc70",
+	"event_type": "play",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 603
+}
+{
+	"user_id": "713bef7a-7c82-4fe7-9e35-96b251226950",
+	"video_id": "4a02a0d6-d5ab-4922-a75b-645fd660dc70",
+	"event_type": "stop",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 1203
+}
+{
+	"user_id": "e5a7b077-e06a-4f90-85fd-4dbfc50d359d",
+	"video_id": "63a96cc6-f59f-490a-8caf-1d1dd1d1ac58",
+	"event_type": "pause",
+	"event_date": "2022-07-2314:20:00.000Z",
+	"video_time": 738
+}
+{
+	"user_id": "e5a7b077-e06a-4f90-85fd-4dbfc50d359d",
+	"video_id": "63a96cc6-f59f-490a-8caf-1d1dd1d1ac58",
+	"event_type": "play",
+	"event_date": "2022-07-2314:20:00.000Z",
+	"video_time": 618
+}
+{
+	"user_id": "e5a7b077-e06a-4f90-85fd-4dbfc50d359d",
+	"video_id": "63a96cc6-f59f-490a-8caf-1d1dd1d1ac58",
+	"event_type": "stop",
+	"event_date": "2022-07-2314:20:00.000Z",
+	"video_time": 1218
+}
+{
+	"user_id": "2d8005e0-27c9-4bed-84c6-154746989505",
+	"video_id": "63a96cc6-f59f-490a-8caf-1d1dd1d1ac58",
+	"event_type": "pause",
+	"event_date": "2022-07-2314:20:00.000Z",
+	"video_time": 724
+}
+{
+	"user_id": "2d8005e0-27c9-4bed-84c6-154746989505",
+	"video_id": "63a96cc6-f59f-490a-8caf-1d1dd1d1ac58",
+	"event_type": "play",
+	"event_date": "2022-07-2314:20:00.000Z",
+	"video_time": 604
+}
+{
+	"user_id": "2d8005e0-27c9-4bed-84c6-154746989505",
+	"video_id": "63a96cc6-f59f-490a-8caf-1d1dd1d1ac58",
+	"event_type": "stop",
+	"event_date": "2022-07-2314:20:00.000Z",
+	"video_time": 1204
+}
+{
+	"user_id": "944a0a54-0dc3-409f-b10a-f53ea68e62af",
+	"video_id": "172a2dae-3cce-4243-b7d2-f48dd117d14d",
+	"event_type": "pause",
+	"event_date": "2022-07-3014:20:00.000Z",
+	"video_time": 725
+}
+{
+	"user_id": "944a0a54-0dc3-409f-b10a-f53ea68e62af",
+	"video_id": "172a2dae-3cce-4243-b7d2-f48dd117d14d",
+	"event_type": "play",
+	"event_date": "2022-07-3014:20:00.000Z",
+	"video_time": 605
+}
+{
+	"user_id": "944a0a54-0dc3-409f-b10a-f53ea68e62af",
+	"video_id": "172a2dae-3cce-4243-b7d2-f48dd117d14d",
+	"event_type": "stop",
+	"event_date": "2022-07-3014:20:00.000Z",
+	"video_time": 1205
+}
+{
+	"user_id": "9fad9e15-7e9c-48f7-9fb2-d5c869cab383",
+	"video_id": "567066fa-a4f5-45fa-a9d7-9b391b6be2a6",
+	"event_type": "pause",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 734
+}
+{
+	"user_id": "9fad9e15-7e9c-48f7-9fb2-d5c869cab383",
+	"video_id": "567066fa-a4f5-45fa-a9d7-9b391b6be2a6",
+	"event_type": "play",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 614
+}
+{
+	"user_id": "9fad9e15-7e9c-48f7-9fb2-d5c869cab383",
+	"video_id": "567066fa-a4f5-45fa-a9d7-9b391b6be2a6",
+	"event_type": "stop",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 1214
+}
+{
+	"user_id": "7526751f-5926-4bdf-8d9f-8ace1e230645",
+	"video_id": "db5867ef-e11b-4c5e-86e8-ed218e253cc9",
+	"event_type": "pause",
+	"event_date": "2022-07-3014:20:00.000Z",
+	"video_time": 726
+}
+{
+	"user_id": "7526751f-5926-4bdf-8d9f-8ace1e230645",
+	"video_id": "db5867ef-e11b-4c5e-86e8-ed218e253cc9",
+	"event_type": "play",
+	"event_date": "2022-07-3014:20:00.000Z",
+	"video_time": 606
+}
+{
+	"user_id": "7526751f-5926-4bdf-8d9f-8ace1e230645",
+	"video_id": "db5867ef-e11b-4c5e-86e8-ed218e253cc9",
+	"event_type": "stop",
+	"event_date": "2022-07-3014:20:00.000Z",
+	"video_time": 1206
+}
+{
+	"user_id": "875a8b52-5f6c-4594-aebe-49814493985f",
+	"video_id": "4614e178-f4b7-4cbb-8ee5-75795a9f41c9",
+	"event_type": "pause",
+	"event_date": "2022-07-1015:20:00.000Z",
+	"video_time": 727
+}
+{
+	"user_id": "875a8b52-5f6c-4594-aebe-49814493985f",
+	"video_id": "4614e178-f4b7-4cbb-8ee5-75795a9f41c9",
+	"event_type": "play",
+	"event_date": "2022-07-1015:20:00.000Z",
+	"video_time": 607
+}
+{
+	"user_id": "875a8b52-5f6c-4594-aebe-49814493985f",
+	"video_id": "4614e178-f4b7-4cbb-8ee5-75795a9f41c9",
+	"event_type": "stop",
+	"event_date": "2022-07-1015:20:00.000Z",
+	"video_time": 1207
+}
+{
+	"user_id": "904b67c3-d751-4487-9aa5-666acef1c434",
+	"video_id": "d969fdeb-b126-401b-8bbb-c37626cc9b12",
+	"event_type": "pause",
+	"event_date": "2022-02-1110:20:00.000Z",
+	"video_time": 728
+}
+{
+	"user_id": "904b67c3-d751-4487-9aa5-666acef1c434",
+	"video_id": "d969fdeb-b126-401b-8bbb-c37626cc9b12",
+	"event_type": "play",
+	"event_date": "2022-02-1110:20:00.000Z",
+	"video_time": 608
+}
+{
+	"user_id": "904b67c3-d751-4487-9aa5-666acef1c434",
+	"video_id": "d969fdeb-b126-401b-8bbb-c37626cc9b12",
+	"event_type": "stop",
+	"event_date": "2022-02-1110:20:00.000Z",
+	"video_time": 1208
+}
+{
+	"user_id": "14b93520-fec1-49c1-b4ea-6e5c97cfaef4",
+	"video_id": "eb4a8ca1-0280-4562-86f1-9b8a285bac30",
+	"event_type": "pause",
+	"event_date": "2022-02-1210:20:00.000Z",
+	"video_time": 729
+}
+{
+	"user_id": "14b93520-fec1-49c1-b4ea-6e5c97cfaef4",
+	"video_id": "eb4a8ca1-0280-4562-86f1-9b8a285bac30",
+	"event_type": "play",
+	"event_date": "2022-02-1210:20:00.000Z",
+	"video_time": 609
+}
+{
+	"user_id": "14b93520-fec1-49c1-b4ea-6e5c97cfaef4",
+	"video_id": "eb4a8ca1-0280-4562-86f1-9b8a285bac30",
+	"event_type": "stop",
+	"event_date": "2022-02-1210:20:00.000Z",
+	"video_time": 1209
+}
+{
+	"user_id": "f12db148-fbac-4202-bcfa-962c684a58f2",
+	"video_id": "61d218d0-516f-4855-89dc-6c75247d3f39",
+	"event_type": "pause",
+	"event_date": "2022-02-1310:20:00.000Z",
+	"video_time": 730
+}
+{
+	"user_id": "f12db148-fbac-4202-bcfa-962c684a58f2",
+	"video_id": "61d218d0-516f-4855-89dc-6c75247d3f39",
+	"event_type": "play",
+	"event_date": "2022-02-1310:20:00.000Z",
+	"video_time": 610
+}
+{
+	"user_id": "f12db148-fbac-4202-bcfa-962c684a58f2",
+	"video_id": "61d218d0-516f-4855-89dc-6c75247d3f39",
+	"event_type": "stop",
+	"event_date": "2022-02-1310:20:00.000Z",
+	"video_time": 1210
+}
+{
+	"user_id": "1e898e29-7c27-491f-84f3-191f140f4d0a",
+	"video_id": "a437ecff-0ac8-4e25-a426-059ea7e02296",
+	"event_type": "pause",
+	"event_date": "2022-02-1410:20:00.000Z",
+	"video_time": 731
+}
+{
+	"user_id": "1e898e29-7c27-491f-84f3-191f140f4d0a",
+	"video_id": "a437ecff-0ac8-4e25-a426-059ea7e02296",
+	"event_type": "play",
+	"event_date": "2022-02-1410:20:00.000Z",
+	"video_time": 611
+}
+{
+	"user_id": "1e898e29-7c27-491f-84f3-191f140f4d0a",
+	"video_id": "a437ecff-0ac8-4e25-a426-059ea7e02296",
+	"event_type": "stop",
+	"event_date": "2022-02-1410:20:00.000Z",
+	"video_time": 1211
+}
+{
+	"user_id": "3f6ebd5c-b428-453c-ab4b-d97df148c65c",
+	"video_id": "a150189a-6aa5-4ee6-aee9-b1f5f2bd7ebc",
+	"event_type": "pause",
+	"event_date": "2022-05-1010:20:00.000Z",
+	"video_time": 732
+}
+{
+	"user_id": "3f6ebd5c-b428-453c-ab4b-d97df148c65c",
+	"video_id": "a150189a-6aa5-4ee6-aee9-b1f5f2bd7ebc",
+	"event_type": "play",
+	"event_date": "2022-05-1010:20:00.000Z",
+	"video_time": 612
+}
+{
+	"user_id": "3f6ebd5c-b428-453c-ab4b-d97df148c65c",
+	"video_id": "a150189a-6aa5-4ee6-aee9-b1f5f2bd7ebc",
+	"event_type": "stop",
+	"event_date": "2022-05-1010:20:00.000Z",
+	"video_time": 1212
+}
+{
+	"user_id": "e480519d-b1e5-4e4d-8180-fd5097e9bbac",
+	"video_id": "6be75f07-b1ee-4183-a567-dc30fef5e9bf",
+	"event_type": "pause",
+	"event_date": "2022-12-2500:20:00.000Z",
+	"video_time": 733
+}
+{
+	"user_id": "e480519d-b1e5-4e4d-8180-fd5097e9bbac",
+	"video_id": "6be75f07-b1ee-4183-a567-dc30fef5e9bf",
+	"event_type": "play",
+	"event_date": "2022-12-2500:20:00.000Z",
+	"video_time": 613
+}
+{
+	"user_id": "e480519d-b1e5-4e4d-8180-fd5097e9bbac",
+	"video_id": "6be75f07-b1ee-4183-a567-dc30fef5e9bf",
+	"event_type": "stop",
+	"event_date": "2022-12-2500:20:00.000Z",
+	"video_time": 1213
+}
+{
+	"user_id": "b8d6cb90-1302-45cb-86eb-fd4654d47c76",
+	"video_id": "1d269a9e-01bf-4467-b77f-7bacfba2ad5b",
+	"event_type": "pause",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 736
+}
+{
+	"user_id": "b8d6cb90-1302-45cb-86eb-fd4654d47c76",
+	"video_id": "1d269a9e-01bf-4467-b77f-7bacfba2ad5b",
+	"event_type": "play",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 616
+}
+{
+	"user_id": "b8d6cb90-1302-45cb-86eb-fd4654d47c76",
+	"video_id": "1d269a9e-01bf-4467-b77f-7bacfba2ad5b",
+	"event_type": "stop",
+	"event_date": "2022-11-3014:20:00.000Z",
+	"video_time": 1216
+}

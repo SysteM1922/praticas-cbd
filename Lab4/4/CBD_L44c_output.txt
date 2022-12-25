@@ -1,0 +1,144 @@
+// O dataset utilizado tem apenas 92 nós e 562 relações. Não encontrei datasets que cumprissem
+// com o requisito de ter mais de 500 nós pois os datasets que encontrei que satisfaziam essa condição
+// ou não tinham o número de relações diferentes mínimo ou essas relações eram muito pobres/com pouco
+// interesse para o trabalho.
+
+#1 Indique o nome do piloto que mais venceu corridas e quantas venceu
+
+MATCH (d:Driver)-[f:FINISHED]->(:GrandPrix)WHERE f.position = "1"RETURN d.name, COUNT(f)ORDER BY COUNT(f)DESC LIMIT 1
+
+Record<{d.name: "Sebastian Vettel", COUNT(f): 13}>
+
+#2 Indique o motor usado por cada Construtor
+
+MATCH (c:Constructor)-[:HAS]->(e:Engine)RETURN c.name, e.name
+
+Record<{c.name: "Williams-Renault", e.name: "Reanult RS27-2013"}>
+Record<{c.name: "Caterham-Renault", e.name: "Reanult RS27-2013"}>
+Record<{c.name: "Lotus-Renault", e.name: "Reanult RS27-2013"}>
+Record<{c.name: "Red Bull-Renault", e.name: "Reanult RS27-2013"}>
+Record<{c.name: "Toro Rosso-Ferrari", e.name: "Ferrari Type 056"}>
+Record<{c.name: "Ferrari", e.name: "Ferrari Type 056"}>
+Record<{c.name: "Sauber-Ferrari", e.name: "Ferrari Type 056"}>
+Record<{c.name: "Force India-Mercedes", e.name: "Mercedes FO 108Z"}>
+Record<{c.name: "Mercedes", e.name: "Mercedes FO 108Z"}>
+Record<{c.name: "McLaren-Mercedes", e.name: "Mercedes FO 108Z"}>
+Record<{c.name: "Marussia-Cosworth", e.name: "CosworthCA2013"}>
+
+#3 Indique todos os pilotos que nunca pertenceram à "Red Bull-Renault"
+
+MATCH (d:Driver) WHERE NOT (d)-[:BELONGED_TO]->(:Constructor {name: "Red Bull-Renault"}) AND NOT (d)-[:BELONGS_TO]->(:Constructor {name: "Red Bull-Renault"})RETURN d.name
+
+Record<{d.name: "Fernando Alonso"}>
+Record<{d.name: "Jenson Button"}>
+Record<{d.name: "Lewis Hamilton"}>
+Record<{d.name: "Kimi Raikkonen"}>
+Record<{d.name: "Felipe Massa"}>
+Record<{d.name: "Sergio Pérez"}>
+Record<{d.name: "Heikki Kovalainen"}>
+Record<{d.name: "Romain Grosjean"}>
+Record<{d.name: "Nico Rosberg"}>
+Record<{d.name: "Nico Hülkenberg"}>
+Record<{d.name: "Esteban Gutiérrez"}>
+Record<{d.name: "Paul di Resta"}>
+Record<{d.name: "Adrian Sutil"}>
+Record<{d.name: "Pastor Maldonado"}>
+Record<{d.name: "Valtteri Bottas"}>
+Record<{d.name: "Jean-Éric Vergne"}>
+Record<{d.name: "Daniel Ricciardo"}>
+Record<{d.name: "Charles Pic"}>
+Record<{d.name: "Giedo van der Garde"}>
+Record<{d.name: "Jules Bianchi"}>
+Record<{d.name: "Max Chilton"}>
+
+#4 Verifique se algum piloto venceu uma corrida no seu país de origem
+
+MATCH (d:Driver)-[:COUNTRY_ORIGIN]->(c:Country)<-[:COUNTRY_ORIGIN]-(g:GrandPrix)<-[f:FINISHED]-(d)
+WHERE f.position = "1"
+RETURN d.name, c.name
+
+Record<{d.name: "Fernando Alonso", c.name: "Spain"}>
+Record<{d.name: "Sebastian Vettel", c.name: "Germany"}>
+
+#5 Devolva a tabela de pontos da competição de pilotos
+
+MATCH (d:Driver)-[f:FINISHED]->(g:GrandPrix)
+WITH d, g, toInteger(f.points) AS points
+RETURN d.name, SUM(points)
+ORDER BY SUM(points) DESC
+
+Record<{d.name: "Sebastian Vettel", SUM(points): 397}>
+Record<{d.name: "Fernando Alonso", SUM(points): 242}>
+Record<{d.name: "Mark Webber", SUM(points): 199}>
+Record<{d.name: "Lewis Hamilton", SUM(points): 189}>
+Record<{d.name: "Kimi Raikkonen", SUM(points): 183}>
+Record<{d.name: "Nico Rosberg", SUM(points): 171}>
+Record<{d.name: "Romain Grosjean", SUM(points): 132}>
+Record<{d.name: "Felipe Massa", SUM(points): 112}>
+Record<{d.name: "Jenson Button", SUM(points): 73}>
+Record<{d.name: "Nico Hülkenberg", SUM(points): 51}>
+Record<{d.name: "Sergio Pérez", SUM(points): 49}>
+Record<{d.name: "Paul di Resta", SUM(points): 48}>
+Record<{d.name: "Adrian Sutil", SUM(points): 29}>
+Record<{d.name: "Daniel Ricciardo", SUM(points): 20}>
+Record<{d.name: "Jean-Éric Vergne", SUM(points): 13}>
+Record<{d.name: "Esteban Gutiérrez", SUM(points): 6}>
+Record<{d.name: "Valtteri Bottas", SUM(points): 4}>
+Record<{d.name: "Pastor Maldonado", SUM(points): 1}>
+Record<{d.name: "Charles Pic", SUM(points): 0}>
+Record<{d.name: "Heikki Kovalainen", SUM(points): 0}>
+Record<{d.name: "Jules Bianchi", SUM(points): 0}>
+Record<{d.name: "Giedo van der Garde", SUM(points): 0}>
+Record<{d.name: "Max Chilton", SUM(points): 0}>
+
+#6 Devolva a tabela de pontos da competição de construtores
+
+MATCH (c:Constructor)<-[:BELONGS_TO]-(d:Driver)-[f:FINISHED]->(g:GrandPrix)
+WITH c, toInteger(f.points) AS points
+RETURN c.name, SUM(points)
+ORDER BY SUM(points) DESC
+
+Record<{c.name: "Red Bull-Renault", SUM(points): 596}>
+Record<{c.name: "Mercedes", SUM(points): 360}>
+Record<{c.name: "Ferrari", SUM(points): 354}>
+Record<{c.name: "Lotus-Renault", SUM(points): 315}>
+Record<{c.name: "McLaren-Mercedes", SUM(points): 122}>
+Record<{c.name: "Force India-Mercedes", SUM(points): 77}>
+Record<{c.name: "Sauber-Ferrari", SUM(points): 57}>
+Record<{c.name: "Toro Rosso-Ferrari", SUM(points): 33}>
+Record<{c.name: "Williams-Renault", SUM(points): 5}>
+Record<{c.name: "Caterham-Renault", SUM(points): 0}>
+Record<{c.name: "Marussia-Cosworth", SUM(points): 0}>
+
+#7 Devolva as corridas vencidas por "Fernado Alonso"
+
+MATCH (d:Driver {name: "Fernando Alonso"})-[f:FINISHED]->(g:GrandPrix)
+WHERE f.position = "1"
+RETURN g.city
+
+Record<{g.city: "Montmeló"}>
+Record<{g.city: "Shanghai"}>
+
+#8 Devolva as corridas em que "Esteban Gutiérrez" não terminou ("RET")
+
+MATCH(d:Driver{name: "Esteban Gutiérrez"})-[:FINISHED{position:"RET"}]->(g:GrandPrix)RETURN g.city
+
+Record<{g.city: "Budapest"}>
+Record<{g.city: "Shanghai"}>
+
+#9 Devolva o país com mais pilotos no campeonato
+
+MATCH (d:Driver)-[:COUNTRY_ORIGIN]->(c:Country)
+RETURN c.name, COUNT(d)
+ORDER BY COUNT(d) DESC LIMIT 1
+
+Record<{c.name: "Germany", COUNT(d): 4}>
+
+#10 Devolva o piloto há mais tempo na equipa onde atua e esse tempo em anos
+
+MATCH (d:Driver)-[b:BELONGS_TO]->(c:Constructor)
+WITH d, c, b.since AS start
+RETURN d.name, c.name, 2013 - toInteger(start) + 1 AS time
+ORDER BY time DESC LIMIT 1
+
+Record<{d.name: "Felipe Massa", c.name: "Ferrari", time: 8}>
